@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 3
+    },
+    "auditLog": "telemetry/.986aea97306b26f68c2abcc43701dd1ba6119c7d-audit.json",
+    "files": [
+        {
+            "date": 1732596320421,
+            "name": "telemetry/telemetry.2024-11-26",
+            "hash": "a61eb845aa7ae76b3ca53ac7881037d817b16579b053d5884eb84e41cbb453f9"
+        },
+        {
+            "date": 1732682720421,
+            "name": "telemetry/telemetry.2024-11-27",
+            "hash": "0be6fb5dc1866eeb946eb0bcb8ef2aeed651b61057e49302e3fe8d49e93d0523"
+        },
+        {
+            "date": 1732769120422,
+            "name": "telemetry/telemetry.2024-11-28",
+            "hash": "d019370c71b77dd30c2f129ed921960f7d4362149bad3a84ad533b310c4efaf6"
+        }
+    ],
+    "hashType": "sha256"
+}

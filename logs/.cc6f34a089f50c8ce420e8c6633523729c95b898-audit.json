@@ -1,0 +1,40 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 7
+    },
+    "auditLog": "logs/.cc6f34a089f50c8ce420e8c6633523729c95b898-audit.json",
+    "files": [
+        {
+            "date": 1732207153173,
+            "name": "logs/opencti.log.2024-11-21",
+            "hash": "6ac9f285bb8be984a4854e445bb8d79c0f203933affcf4ec83a488b4232d5887"
+        },
+        {
+            "date": 1732285304568,
+            "name": "logs/opencti.log.2024-11-22",
+            "hash": "20e34e44aa488ca8e938f7cf255dd76ee0e3a34beb4766f22bfeae67ae02bf2a"
+        },
+        {
+            "date": 1732540586659,
+            "name": "logs/opencti.log.2024-11-25",
+            "hash": "a95b821599d49acf55cb966e9530060d5d5fb3e26b0e4b2cf5c6d6ce2ab24842"
+        },
+        {
+            "date": 1732626056426,
+            "name": "logs/opencti.log.2024-11-26",
+            "hash": "fb085edb907c51b9c2c8fca1ed5c5915d5c127fc7c963697c1eeb1e165b73dee"
+        },
+        {
+            "date": 1732713809813,
+            "name": "logs/opencti.log.2024-11-27",
+            "hash": "24b5ef274166364f4877ec2d9b4365ea6e79c06d94f389192e7a56bf9bdb3451"
+        },
+        {
+            "date": 1732793688897,
+            "name": "logs/opencti.log.2024-11-28",
+            "hash": "04044d117d1bba6c3228651dd55ba538dbb092d0b42b1fad38569be6ff8fe7a6"
+        }
+    ],
+    "hashType": "sha256"
+}

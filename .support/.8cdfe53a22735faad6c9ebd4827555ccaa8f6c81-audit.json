@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 3
+    },
+    "auditLog": ".support/.8cdfe53a22735faad6c9ebd4827555ccaa8f6c81-audit.json",
+    "files": [
+        {
+            "date": 1732626056427,
+            "name": ".support/support.2024-11-26",
+            "hash": "8c68fb59dbfe63a196efdd0d07cc1cb7f12b3b3870b145ffb9b9db0f4cc74e14"
+        },
+        {
+            "date": 1732713809814,
+            "name": ".support/support.2024-11-27",
+            "hash": "b1a47021bda18f1043ad3480432253f08dbcc6097efa29cb9c73849db9196a40"
+        },
+        {
+            "date": 1732793688899,
+            "name": ".support/support.2024-11-28",
+            "hash": "89a7795253b047c4038b7b99c634c106d68b59acbe3c221863fa40af814ffefd"
+        }
+    ],
+    "hashType": "sha256"
+}
