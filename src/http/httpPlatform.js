@@ -464,9 +464,30 @@ const createApp = async (app) => {
     }
   });
 
-  app.get(`${basePath}/prueba`, (req, res) => {
+  app.get(`${basePath}/prueba`, async (_, res) => {
     // Código específico que deseas ejecutar
-    console.log('Ruta /prueba accedida');
+    if (ENABLED_UI) {
+      const context = executionContext('app_loading');
+      const settings = await getEntityFromCache(context, SYSTEM_USER, ENTITY_TYPE_SETTINGS);
+      const data = readFileSync(`${__dirname}/../public/index.html`, 'utf8');
+      const settingsTitle = settings?.platform_title;
+      const description = 'OpenCTI is an open source platform allowing organizations'
+          + ' to manage their cyber threat intelligence knowledge and observables.';
+      const settingFavicon = settings?.platform_favicon;
+      const withOptionValued = data
+        .replace(/%BASE_PATH%/g, basePath)
+        .replace(/%APP_TITLE%/g, isNotEmptyField(settingsTitle) ? validator.escape(settingsTitle)
+          : 'Prueba')
+        .replace(/%APP_DESCRIPTION%/g, validator.escape(description))
+        .replace(/%APP_FAVICON%/g, isNotEmptyField(settingFavicon) ? validator.escape(settingFavicon)
+          : `${basePath}/static/ext/favicon_pruebas.png`)
+        .replace(/%APP_MANIFEST%/g, `${basePath}/static/ext/manifest.json`);
+      res.set('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+      res.set('Expires', '-1');
+      res.set('Pragma', 'no-cache');
+      res.send(withOptionValued);
+    }
+    res.status(503).send({ status: 'error', error: 'Interface is disabled by configuration' });
   });
 
   // Other routes - Render index.html
