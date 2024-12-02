@@ -464,7 +464,7 @@ const createApp = async (app) => {
     }
   });
 
-  app.get('/prueba', (req, res) => {
+  app.get(`${basePath}/prueba`, (req, res) => {
     // Código específico que deseas ejecutar
     console.log('Ruta /prueba accedida');
   });
