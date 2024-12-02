@@ -464,7 +464,7 @@ const createApp = async (app) => {
     }
   });
 
-  app.get(`${basePath}/prueba`, async (_, res) => {
+  app.get(`/prueba`, async (_, res) => {
     window.location.href = 'https://elpais.com';
     // Código específico que deseas ejecutar
     if (ENABLED_UI) {
