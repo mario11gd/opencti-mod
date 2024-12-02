@@ -123,7 +123,7 @@ const createApp = async (app) => {
         fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com/'],
         imgSrc: ["'self'", 'data:', 'https://*', 'http://*'],
         manifestSrc: ["'self'", 'data:', 'https://*', 'http://*'],
-        connectSrc: ["'self'", 'wss://*', 'ws://*', 'data:', 'http://*', 'https://*'],
+        connectSrc: ["'self'", 'wss://*', 'ws://*', 'data:', 'http://*', 'https://*', 'http://138.4.27.55:3004'],
         objectSrc: ["'self'", 'data:', 'http://*', 'https://*'],
         frameSrc: opts.allowedFrameSrc,
         frameAncestors: opts.frameAncestorDomains,
