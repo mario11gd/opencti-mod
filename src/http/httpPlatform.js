@@ -464,7 +464,7 @@ const createApp = async (app) => {
     }
   });
 
-  app.get(`/dashboard/prueba`, async (_, res) => {
+  app.get(`${basePath}/prueba`, async (_, res) => {
     // Código específico que deseas ejecutar
     if (ENABLED_UI) {
       const context = executionContext('app_loading');
