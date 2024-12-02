@@ -464,6 +464,11 @@ const createApp = async (app) => {
     }
   });
 
+  app.get('/prueba', (req, res) => {
+    // Código específico que deseas ejecutar
+    console.log('Ruta /prueba accedida');
+  });
+
   // Other routes - Render index.html
   app.get('*', async (_, res) => {
     if (ENABLED_UI) {
