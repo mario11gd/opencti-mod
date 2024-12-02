@@ -1,6 +1,9 @@
 const express = require('express');
 const { spawn } = require('child_process');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 const port = 3004;
 
 // Ruta que ejecutará el script Python
