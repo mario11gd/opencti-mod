@@ -97,54 +97,54 @@ const createApp = async (app) => {
   }
 
   // Configure server security
-  // const buildSecurity = (opts) => helmet({
-  //   expectCt: { enforce: true, maxAge: 30 },
-  //   referrerPolicy: { policy: 'unsafe-url' },
-  //   crossOriginEmbedderPolicy: false,
-  //   crossOriginOpenerPolicy: false,
-  //   crossOriginResourcePolicy: false,
-  //   contentSecurityPolicy: {
-  //     useDefaults: false,
-  //     directives: {
-  //       defaultSrc: ["'self'", 'http://138.4.27.55:3004'],
-  //       scriptSrc: opts.scriptSrc,
-  //       styleSrc: [
-  //         "'self'",
-  //         "'unsafe-inline'",
-  //         'http://cdn.jsdelivr.net/npm/@apollographql/',
-  //         'https://fonts.googleapis.com/',
-  //       ],
-  //       scriptSrcAttr: [
-  //         "'self'",
-  //         "'unsafe-inline'",
-  //         'http://cdn.jsdelivr.net/npm/@apollographql/',
-  //         'https://fonts.googleapis.com/',
-  //       ],
-  //       fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com/'],
-  //       imgSrc: ["'self'", 'data:', 'https://*', 'http://*'],
-  //       manifestSrc: ["'self'", 'data:', 'https://*', 'http://*'],
-  //       connectSrc: ["'self'", 'wss://*', 'ws://*', 'data:', 'http://*', 'https://*', 'http://138.4.27.55:3004'],
-  //       objectSrc: ["'self'", 'data:', 'http://*', 'https://*'],
-  //       frameSrc: opts.allowedFrameSrc,
-  //       frameAncestors: opts.frameAncestorDomains,
-  //     },
-  //   },
-  //   xFrameOptions: !opts.isIframeAllowed,
-  // });
+  const buildSecurity = (opts) => helmet({
+    expectCt: { enforce: true, maxAge: 30 },
+    referrerPolicy: { policy: 'unsafe-url' },
+    crossOriginEmbedderPolicy: false,
+    crossOriginOpenerPolicy: false,
+    crossOriginResourcePolicy: false,
+    contentSecurityPolicy: {
+      useDefaults: false,
+      directives: {
+        defaultSrc: [],
+        scriptSrc: opts.scriptSrc,
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          'http://cdn.jsdelivr.net/npm/@apollographql/',
+          'https://fonts.googleapis.com/',
+        ],
+        scriptSrcAttr: [
+          "'self'",
+          "'unsafe-inline'",
+          'http://cdn.jsdelivr.net/npm/@apollographql/',
+          'https://fonts.googleapis.com/',
+        ],
+        fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com/'],
+        imgSrc: ["'self'", 'data:', 'https://*', 'http://*'],
+        manifestSrc: ['data:', 'https://*', 'http://*'],
+        connectSrc: ['wss://*', 'ws://*', 'data:', 'http://*', 'https://*'],
+        objectSrc: ['data:', 'http://*', 'https://*'],
+        frameSrc: opts.allowedFrameSrc,
+        frameAncestors: opts.frameAncestorDomains,
+      },
+    },
+    xFrameOptions: !opts.isIframeAllowed,
+  });
 
-  // const ancestorsFromConfig = nconf.get('app:public_dashboard_authorized_domains')?.trim() ?? '';
-  // const frameAncestorDomains = ancestorsFromConfig === '' ? "'none'" : ancestorsFromConfig;
-  // const allowedFrameSrc = ["'self'"];
-  // const scriptSrc = ["'self'", "'unsafe-inline'", 'http://cdn.jsdelivr.net/npm/@apollographql/', 'https://www.googletagmanager.com/'];
-  // if (DEV_MODE) {
-  //   scriptSrc.push("'unsafe-eval'");
-  // }
-  // const securityOpts = {
-  //   frameAncestorDomains: "'none'",
-  //   allowedFrameSrc,
-  //   scriptSrc,
-  //   isIframeAllowed: false,
-  // };
+  const ancestorsFromConfig = nconf.get('app:public_dashboard_authorized_domains')?.trim() ?? '';
+  const frameAncestorDomains = ancestorsFromConfig === '' ? "'none'" : ancestorsFromConfig;
+  const allowedFrameSrc = ["'self'"];
+  const scriptSrc = ["'self'", "'unsafe-inline'", 'http://cdn.jsdelivr.net/npm/@apollographql/', 'https://www.googletagmanager.com/'];
+  if (DEV_MODE) {
+    scriptSrc.push("'unsafe-eval'");
+  }
+  const securityOpts = {
+    frameAncestorDomains: "'none'",
+    allowedFrameSrc,
+    scriptSrc,
+    isIframeAllowed: false,
+  };
 
   app.use((req, res, next) => {
     const urlString = req.url;
