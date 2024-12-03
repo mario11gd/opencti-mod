@@ -8,10 +8,15 @@ const port = 3004;
 
 // Ruta que ejecutará el script Python
 app.get('/run-python', (req, res) => {
-  print("Conectando con código Python")
+  console.log("Conectando con código Python")
   const spawn = require('child_process').spawn
+  const pythonProcess = spawn('python3', ['script_python.py'])
 
-  const pythonProcess = spawn('python', ['script_python.py'])
+  let output = '';
+  pythonProcess.stdout.on('data', (data) => {
+    output += data.toString(); 
+    console.log(output)
+  });
 });
 
 // Iniciar el servidor en el puerto 3004
