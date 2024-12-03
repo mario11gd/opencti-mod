@@ -218,3 +218,15 @@ def importar_riesgo(individual):
     # Recupera el ID de la etiqueta
     label_id = label.list(search=individual["nivel_riesgo"])[0]["id"]
     return (label_id, "Riesgo")
+
+if __name__ == "__main__":
+    print("Conexión establecida")
+    importar_incidente({
+            "id": "Incident_prueba",
+            "tipo": [
+                "Incident"
+            ],
+            "activo_afectado": [
+                "Plane1"
+            ]
+        })
