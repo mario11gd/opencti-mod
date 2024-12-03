@@ -90,7 +90,7 @@ const createApp = async (app) => {
   });
 
   // Init the http server
-  app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']);
+  app.set();
   app.use(limiter);
   if (DEV_MODE) {
     app.set('json spaces', 2);
@@ -106,7 +106,7 @@ const createApp = async (app) => {
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
-        defaultSrc: [],
+        defaultSrc: ["'self'", 'http://138.4.27.55:3004'],
         scriptSrc: opts.scriptSrc,
         styleSrc: [
           "'self'",
@@ -122,9 +122,9 @@ const createApp = async (app) => {
         ],
         fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com/'],
         imgSrc: ["'self'", 'data:', 'https://*', 'http://*'],
-        manifestSrc: ['data:', 'https://*', 'http://*'],
-        connectSrc: ['wss://*', 'ws://*', 'data:', 'http://*', 'https://*'],
-        objectSrc: ['data:', 'http://*', 'https://*'],
+        manifestSrc: ["'self'", 'data:', 'https://*', 'http://*'],
+        connectSrc: ["'self'", 'wss://*', 'ws://*', 'data:', 'http://*', 'https://*', 'http://138.4.27.55:3004'],
+        objectSrc: ["'self'", 'data:', 'http://*', 'https://*'],
         frameSrc: opts.allowedFrameSrc,
         frameAncestors: opts.frameAncestorDomains,
       },
