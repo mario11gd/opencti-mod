@@ -9,7 +9,7 @@ const port = 3004;
 // Ruta que ejecutará el script Python
 app.get('/run-python', (req, res) => {
   console.log("Conectando con código Python")
-  const pythonProcess = spawn('python3', ['prueba.py'])
+  const pythonProcess = spawn('python3', ['import_data.py'])
 
   let output = '';
   pythonProcess.stdout.on('data', (data) => {
