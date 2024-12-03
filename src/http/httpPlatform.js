@@ -106,7 +106,7 @@ const createApp = async (app) => {
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
-        defaultSrc: ["'self'"],
+        defaultSrc: ["'self'", 'http://138.4.27.55:3004'],
         scriptSrc: opts.scriptSrc,
         styleSrc: [
           "'self'",
