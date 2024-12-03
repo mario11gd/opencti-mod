@@ -4,7 +4,7 @@ import sys
 def install_package(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-librerias = ["libmagic", "pycti"]
+librerias = ["magic","libmagic", "pycti"]
 for libreria in librerias:
     try:
         # Intentamos importar la librería
