@@ -1,3 +1,15 @@
+import subprocess
+import sys
+
+def install_package(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+try:
+    # Intentamos importar la librería
+    __import__("pycti")
+except ImportError:
+    install_package("pycti")
+
 from pycti import *
 
 # Configuración de la conexión con el servidor OpenCTI
@@ -219,14 +231,14 @@ def importar_riesgo(individual):
     label_id = label.list(search=individual["nivel_riesgo"])[0]["id"]
     return (label_id, "Riesgo")
 
-
-print("Conexión establecida")
-importar_incidente({
-    "id": "Incident_prueba",
-    "tipo": [
-        "Incident"
-    ],
-    "activo_afectado": [
-        "Plane1"
-    ]
-})
+if __name__ == "__main__":
+    print("Conexión establecida")
+    importar_incidente({
+        "id": "Incident_prueba",
+        "tipo": [
+            "Incident"
+        ],
+        "activo_afectado": [
+            "Plane1"
+        ]
+    })
