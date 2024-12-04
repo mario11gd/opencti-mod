@@ -1,1 +1,1 @@
-print("Prueba")
+print("Conexión establecida con código Python")
