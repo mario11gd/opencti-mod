@@ -2,10 +2,14 @@ from pycti import *
 import json
 import re
 from datetime import datetime
-import matplotlib.pyplot as plt
-import io
-import base64
-import requests
+import subprocess
+import sys
+
+try:
+    import matplotlib.pyplot as plt 
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+    import matplotlib.pyplot as plt
 
 api_url = "http://138.4.27.55:8080/"
 api_token = "1de472a6-c8cd-404f-89b3-de7bf1e5b8da"
