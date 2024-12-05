@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors());
-const port = 3004;
+const port = 3005;
 
 // Ruta que ejecutará el script Python
 app.get('/prueba', (req, res) => {
