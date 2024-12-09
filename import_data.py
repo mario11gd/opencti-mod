@@ -1,3 +1,17 @@
+import subprocess
+import sys
+
+def install_package(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+librerias = ["libmagic", "pycti"]
+for libreria in librerias:
+    try:
+        # Intentamos importar la librería
+        __import__(libreria)
+    except ImportError:
+        install_package(libreria)
+
 from pycti import *
 from riesgos import *
 
